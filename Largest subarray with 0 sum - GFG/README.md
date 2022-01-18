@@ -1,5 +1,5 @@
 # Largest subarray with 0 sum
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array having both positive and negative integers. The task is to compute the&nbsp;length of the largest subarray with sum 0.</span></p>
 
