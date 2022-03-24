@@ -6,9 +6,9 @@ public:
         long long int ans = 0;
         while (a<=b) {
             ans++;
-            if (people[a] + people[b] <= limit)
+            if (people[a]+people[b]<=limit)
                 a++;
             b--;
-        }return ans;
+        }return (int)ans;
     }
 };
