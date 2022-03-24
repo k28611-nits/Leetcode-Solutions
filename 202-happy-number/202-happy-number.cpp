@@ -1,24 +1,24 @@
 class Solution {
 public:
-    int digitSqSum(int n){
-        int sum=0;
-        while(n>0){
-            sum=sum+((n%10)*(n%10));
-            n=n/10;
+   int solve(int n) {
+        int sum = 0;
+        while(n > 0) {
+			int r = n%10;
+            sum += r*r;
+            n /= 10;
         }
         return sum;
     }
     
-    bool isHappy(int n) {        
-        int temp=n;
-        while(1)
-        {
-            if(temp==89)
-                return false;
-            if(temp==1)
-                return true;
-            temp=digitSqSum(temp);
-        }
-        
+    bool isHappy(int n) {
+        int slow = n, fast = n;
+        do {
+            slow = solve(slow);
+            fast = solve(solve(fast));
+            if(fast == 1) return 1;
+        } while(slow != fast);
+        return 0;
     }
+        
+    
 };
