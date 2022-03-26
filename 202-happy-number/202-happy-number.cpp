@@ -15,7 +15,7 @@ public:
         do {
             slow = solve(slow);
             fast = solve(solve(fast));
-            if(fast == 1) return 1;
+            if(fast == 1 or slow==1) return 1;
         } while(slow != fast);
         return 0;
     }
