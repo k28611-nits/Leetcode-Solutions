@@ -1,17 +1,16 @@
 class Solution {
 public:
-    int find(int index, vector<int>& nums, vector<int>& dp)
+    int f(int n,vector<int>& nums, vector<int>&dp)
     {
-        int pick,notpick;
-        if(index==0) return nums[index];
-        if(index<0) return 0;
-        if(dp[index]!=-1) return dp[index];
-        pick=nums[index] + find(index-2,nums,dp);
-        notpick=find(index-1,nums,dp);
-        return dp[index]=max(pick,notpick);
+        if(n==0) return nums[n];
+        if(n<0) return 0;
+        if(dp[n]!=-1) return dp[n];
+        int pick=nums[n]+f(n-2,nums,dp);
+        int notpick=f(n-1,nums,dp);
+        return dp[n]=max(pick,notpick);
     }
     int rob(vector<int>& nums) {
-       vector<int> dp(nums.size(),-1);
-        return find(nums.size()-1,nums,dp);
+        vector<int> dp(nums.size()+1,-1);
+        return f(nums.size()-1,nums,dp);
     }
 };
